@@ -169,6 +169,7 @@ where
     join(
         &[
             COMMON_SRC.to_string(),
+            NVIDIA_SRC.to_string(),
             params::<F, L>(),
             nvidia::field_add_sub_nvidia::<F, L>(),
             String::from(FIELD_SRC),
@@ -180,9 +181,7 @@ where
 
 /// Generates shared definitions, must be included _before_ `field` sources.
 pub fn shared() -> String {
-    join(&[
-        NVIDIA_SRC.to_string(),
-    ], "\n")
+    join(&[NVIDIA_SRC.to_string()], "\n")
 }
 
 #[cfg(test)]
